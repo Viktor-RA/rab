@@ -1,0 +1,1 @@
+sqlcmd -S PARSECPC\PARSEC4 -i D:\Scripts\SELECT_2

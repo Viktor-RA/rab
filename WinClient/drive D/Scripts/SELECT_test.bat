@@ -1,0 +1,1 @@
+sqlcmd -S PARSECPC\PARSEC4 -i D:\Scripts\SELECT_65667 > D:\Scripts\65667.log
