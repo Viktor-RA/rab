@@ -1,0 +1,26 @@
+/var/log/remote/*/*.log {
+    rotate 14
+    missingok
+    notifempty
+    daily
+    compress
+    delaycompress
+    maxage 30
+    create 0644 root root
+#    postrotate
+#	/usr/lib/rsyslog/rsyslog-rotate
+#    endscript
+}
+/var/log/remote/*.log {
+    rotate 14
+    missingok
+    notifempty
+    daily
+    compress
+    delaycompress
+    maxage 30
+    create 0644 root root
+#    postrotate
+#	/usr/lib/rsyslog/rsyslog-rotate
+#    endscript
+}
