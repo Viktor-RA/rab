@@ -1,0 +1,16 @@
+:local loglist [:toarray [/log find  time>([/system clock get time]-1m)  message~"phase1 negotiation failed"]];
+:if  ([:len $loglist]>5) do={
+    :foreach line in=$loglist do={
+#        :log debug message=$line;
+        :local content [/log get number=$line message];
+        :if ($content = "") do={/log debug "Empty content"};
+#        :log debug $content;
+        :local ipaddr [:pick $content 0 ([:find $content " phase1"])];
+#        :log debug $ipaddr; 
+        :if ($ipaddr != "") do={
+            :if ([/ip firewall address-list find address=$ipaddr] = "" ) do={
+            /ip firewall address-list add list=black-list comment="l2tp" address=$ipaddr
+            }
+        }
+    }
+}
